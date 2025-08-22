@@ -86,17 +86,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Don’t have an account? Register"
-                android:textSize="14sp"
+                android:textSize="15dp"
                 android:textColor="#757575"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <TextView
                 android:id="@+id/ForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot Password?"
-                android:textSize="14sp"
-                android:textColor="#757575"/>
+                android:textSize="15dp"
+                android:textColor="#757575"
+                android:clickable="true"
+                android:focusable="true"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
