@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
@@ -24,6 +24,7 @@
             android:layout_height="517dp"
             android:orientation="vertical"
             android:padding="24dp"
+            android:layout_gravity="center"
             android:gravity="center_horizontal">
 
             <ImageView
@@ -49,29 +50,28 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/Username"
+                android:id="@+id/username"
                 android:layout_width="287dp"
                 android:layout_height="58dp"
+
                 android:hint="Username"
                 android:padding="14dp"
-                android:background="@android:color/darker_gray"
-                android:backgroundTint="#DDDDDD"
+                android:background="@color/box_gray"
                 android:layout_marginBottom="12dp"
                 android:inputType="textPersonName"/>
 
             <EditText
-                android:id="@+id/Password"
+                android:id="@+id/password"
                 android:layout_width="287dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="20dp"
-                android:background="@android:color/darker_gray"
-                android:backgroundTint="#DDDDDD"
+                android:background="@color/box_gray"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="14dp" />
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnlogin"
                 android:layout_width="168dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="18dp"
@@ -82,7 +82,7 @@
                 android:textColor="@android:color/white" />
 
             <TextView
-                android:id="@+id/Register"
+                android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Don’t have an account? Register"
@@ -93,7 +93,7 @@
                 android:focusable="true"/>
 
             <TextView
-                android:id="@+id/ForgotPassword"
+                android:id="@+id/forgotpassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot Password?"
