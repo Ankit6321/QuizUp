@@ -56,6 +56,8 @@
         android:text="Ready to quiz?"
         android:textColor="#D81B60"
         android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textStyle="bold" />
 
 
@@ -79,18 +81,18 @@
             android:id="@+id/btnHost"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:text="Host"
-            android:textColor="@android:color/white"
+            android:layout_marginEnd="35dp"
             android:backgroundTint="#9C27B0"
-            android:layout_marginEnd="12dp"/>
+            android:text="Host"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnJoin"
             android:layout_width="120dp"
             android:layout_height="50dp"
+            android:backgroundTint="#009688"
             android:text="Join"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#009688"/>
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
@@ -118,7 +120,7 @@
             android:text="All"
             android:backgroundTint="#E91E63"
             android:textColor="@android:color/white"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="18dp"/>
 
         <Button
             android:id="@+id/btnProgramming"
@@ -127,15 +129,15 @@
             android:text="Programming"
             android:backgroundTint="#E0E0E0"
             android:textColor="#808080"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="18dp"/>
 
         <Button
             android:id="@+id/btnGeopolitics"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Geopolitics"
             android:backgroundTint="#E0E0E0"
-            android:textColor="#808080"/>
+            android:text="Geopolitics"
+            android:textColor="#808080" />
     </LinearLayout>
 
     <TextView
@@ -169,6 +171,5 @@
     </LinearLayout>
 
 
-    </LinearLayout>
-
+</LinearLayout>
 
