@@ -21,97 +21,96 @@
         app:cardBackgroundColor="@color/background_light">
 
         <LinearLayout
-            android:layout_width="343dp"
-            android:layout_height="517dp"
-            android:orientation="vertical"
-            android:padding="24dp"
+            android:layout_width="340dp"
+            android:layout_height="540dp"
             android:layout_gravity="center"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
 
             <ImageView
                 android:layout_width="62dp"
                 android:layout_height="62dp"
-                android:src="@drawable/icon_shape"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/icon_shape" />
 
             <TextView
+                style="@style/bigger_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="QuizUp"
                 android:textColor="@color/purple_700"
-                style="@style/bigger_heading"
                 android:textStyle="bold" />
 
             <TextView
+                style="@style/normal_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:text="Welcome back! Ready to quiz?"
                 android:textColor="@color/text_dark"
-                style="@style/normal_size"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/username"
+                style="@style/normal_size"
                 android:layout_width="287dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/text_box_shape"
                 android:hint="Username"
-                android:textColorHint="@color/text_gray"
-                android:textColor="@color/text_dark"
-                style="@style/normal_size"
                 android:inputType="textPersonName"
-                android:padding="14dp" />
+                android:padding="14dp"
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_gray" />
 
             <EditText
                 android:id="@+id/password"
+                style="@style/normal_size"
                 android:layout_width="287dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/text_box_shape"
                 android:hint="Password"
-                android:textColorHint="@color/text_gray"
-                android:textColor="@color/text_dark"
-                style="@style/normal_size"
                 android:inputType="textPassword"
-                android:padding="14dp" />
+                android:padding="14dp"
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_gray" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnlogin"
+                style="@style/normal_bold"
                 android:layout_width="168dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="18dp"
-                android:background="@drawable/button_shape_purple"
+                android:background="@drawable/purple_gradient"
                 android:text="Start Quizzing!"
                 android:textAllCaps="false"
-                android:textColor="@color/text_white"
-                style="@style/normal_bold"
-                />
+                android:textColor="@color/text_white" />
 
             <TextView
                 android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Don’t have an account? Register"
-                android:textSize="15dp"
                 style="@style/normal_size"
-                android:textColor="@color/text_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginBottom="8dp"
                 android:clickable="true"
-                android:focusable="true"/>
+                android:focusable="true"
+                android:text="Don’t have an account? Register"
+                android:textColor="@color/text_dark"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/forgotpassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:textSize="15dp"
-                android:textColor="@color/text_dark"
                 style="@style/normal_size"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
                 android:clickable="true"
-                android:focusable="true"/>
+                android:focusable="true"
+                android:text="Forgot Password?"
+                android:textColor="@color/text_dark"
+                android:textSize="15sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

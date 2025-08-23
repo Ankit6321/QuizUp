@@ -13,10 +13,13 @@
         android:theme="@style/Theme.Quizupsignup"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity3"
+            android:name=".Host_page"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".Forgot_password_page"
+            android:exported="false" />
+        <activity
+            android:name=".Home_page"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

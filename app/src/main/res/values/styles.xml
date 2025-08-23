@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="heading">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="sub_heading">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="normal_size">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ultra_small_size">
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="bigger_heading">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>s
+    </style>
+
+    <style name="normal_bold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="small">
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>
