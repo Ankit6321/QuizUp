@@ -74,12 +74,12 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="168dp"
                 android:layout_height="58dp"
-                android:text="Start Quizzing!"
-                android:textColor="@android:color/white"
-                android:textAllCaps="false"
-                android:background="@drawable/Signinbutton"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/signinbutton"
                 android:padding="14dp"
-                android:layout_marginBottom="18dp" />
+                android:text="Start Quizzing!"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/Register"
