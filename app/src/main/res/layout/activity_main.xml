@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@drawable/bg_login_gradient"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="@color/background_light">
 
         <LinearLayout
             android:layout_width="343dp"
@@ -30,15 +31,16 @@
             <ImageView
                 android:layout_width="62dp"
                 android:layout_height="62dp"
-                android:src="@drawable/ellipse"
+                android:src="@drawable/icon_shape"
                 android:layout_marginBottom="12dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="QuizUp"
-                android:textColor="#6A39F7"
-                android:textSize="32sp"
+                android:textColor="@color/purple_700"
+                style="@style/bigger_heading"
                 android:textStyle="bold" />
 
             <TextView
@@ -46,40 +48,47 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:text="Welcome back! Ready to quiz?"
-                android:textColor="#757575"
+                android:textColor="@color/text_dark"
+                style="@style/normal_size"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/username"
                 android:layout_width="287dp"
                 android:layout_height="58dp"
-
-                android:hint="Username"
-                android:padding="14dp"
-                android:background="@color/box_gray"
                 android:layout_marginBottom="12dp"
-                android:inputType="textPersonName"/>
+                android:background="@drawable/text_box_shape"
+                android:hint="Username"
+                android:textColorHint="@color/text_gray"
+                android:textColor="@color/text_dark"
+                style="@style/normal_size"
+                android:inputType="textPersonName"
+                android:padding="14dp" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="287dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="20dp"
-                android:background="@color/box_gray"
+                android:background="@drawable/text_box_shape"
                 android:hint="Password"
+                android:textColorHint="@color/text_gray"
+                android:textColor="@color/text_dark"
+                style="@style/normal_size"
                 android:inputType="textPassword"
                 android:padding="14dp" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnlogin"
                 android:layout_width="168dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="18dp"
-                android:background="@drawable/signinbutton"
-                android:padding="14dp"
+                android:background="@drawable/button_shape_purple"
                 android:text="Start Quizzing!"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/text_white"
+                style="@style/normal_bold"
+                />
 
             <TextView
                 android:id="@+id/register"
@@ -87,7 +96,8 @@
                 android:layout_height="wrap_content"
                 android:text="Don’t have an account? Register"
                 android:textSize="15dp"
-                android:textColor="#757575"
+                style="@style/normal_size"
+                android:textColor="@color/text_dark"
                 android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"/>
@@ -98,7 +108,8 @@
                 android:layout_height="wrap_content"
                 android:text="Forgot Password?"
                 android:textSize="15dp"
-                android:textColor="#757575"
+                android:textColor="@color/text_dark"
+                style="@style/normal_size"
                 android:clickable="true"
                 android:focusable="true"/>
 
