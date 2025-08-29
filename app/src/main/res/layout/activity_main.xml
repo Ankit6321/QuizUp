@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login_gradient"
+    android:background="@drawable/bg_gradient"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/background_light"
+        app:cardBackgroundColor="@color/card_indigo"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,15 +30,15 @@
                 android:layout_width="62dp"
                 android:layout_height="62dp"
                 android:layout_marginBottom="12dp"
-                android:src="@drawable/icon_shape" />
+                android:src="@drawable/logo" />
 
             <TextView
-                style="@style/bigger_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="QuizUp"
-                android:textColor="@color/purple_700"
+                android:text="Quizaro"
+                android:textColor="@color/text_dark"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -95,7 +95,7 @@
 
                 <TextView
                     android:id="@+id/register"
-                    style="@style/normal_size"
+                    style="@style/normal_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_marginBottom="8dp"
@@ -109,7 +109,7 @@
                 <TextView
                     android:id="@+id/forgotpassword"
                     android:layout_marginLeft="40dp"
-                    style="@style/normal_size"
+                    style="@style/normal_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:clickable="true"

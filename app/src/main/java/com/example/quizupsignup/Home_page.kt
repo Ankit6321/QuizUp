@@ -24,7 +24,17 @@ class Home_page : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // ✅ Extend background under system bars (like Progress_page)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_home_page)
+
+        // ✅ Fix window insets so content doesn’t overlap status/nav bars
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.home_page)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         val btnHost = findViewById<AppCompatButton>(R.id.btnHost)
         val btnJoin = findViewById<AppCompatButton>(R.id.btnJoin)
@@ -81,7 +91,6 @@ class Home_page : AppCompatActivity() {
         val tvQuizTitle = dialogView.findViewById<TextView>(R.id.tvQuizTitle)
         val tvQuizDescription = dialogView.findViewById<TextView>(R.id.tvQuizTopic)
         val tvHostName = dialogView.findViewById<TextView>(R.id.tvHostName)
-        val btnJoinNow = dialogView.findViewById<AppCompatButton>(R.id.btnJoinNow)
 
         // Search click
         btnSearch.setOnClickListener {
@@ -100,14 +109,6 @@ class Home_page : AppCompatActivity() {
                 }
             }
         }
-
-        // Join click → later can open LobbyActivity
-//        btnJoinNow.setOnClickListener {
-//            dialog.dismiss()
-//            val intent = Intent(this, LobbyActivity::class.java)
-//            intent.putExtra("QUIZ_CODE", etCode.text.toString())
-//            startActivity(intent)
-//        }
 
         // remove default grey background
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
