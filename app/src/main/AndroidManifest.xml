@@ -13,11 +13,17 @@
         android:theme="@style/Theme.Quizupsignup"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".Register_page"
+            android:exported="false" />
+        <activity
+            android:name=".Progress_page"
+            android:exported="false" />
+        <activity
+            android:name=".quiz_page"
             android:exported="false" />
         <activity
             android:name=".Host_page"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Forgot_password_page"
             android:exported="false" />
@@ -26,8 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

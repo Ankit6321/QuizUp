@@ -7,15 +7,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_gradient"
-    tools:context=".MainActivity">
+    tools:context=".Home_page">
 
-
+    <!-- Header -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:padding="12dp"
         android:background="@color/card_white">
-
 
         <ImageView
             android:id="@+id/logo"
@@ -25,17 +24,16 @@
             android:background="@drawable/icon_shape"
             android:scaleType="centerCrop" />
 
-
         <TextView
             android:id="@+id/appName"
-            android:layout_width="89dp"
-            android:layout_height="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
             android:layout_marginTop="9dp"
             android:layout_toEndOf="@id/logo"
             android:text="QuizUp"
             style="@style/sub_heading"
-            android:textColor="@color/text_dark"/>
+            android:textColor="@color/text_dark" />
 
         <ImageView
             android:id="@+id/profileIcon"
@@ -49,146 +47,223 @@
     </RelativeLayout>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:text="Ready to quiz?"
-        android:textColor="@color/pink"
-        style="@style/bigger_heading"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:text="Challenge yourself and climb the leaderboards!"
-        android:textColor="@color/text_gray"
-        style="@style/normal_size" />
-
+    <!-- Main Content Container -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnHost"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="35dp"
-            android:background="@drawable/purple_gradient"
-            android:text="Host"
-            style="@style/sub_heading"
-            android:textStyle="bold"
-            android:textColor="@color/text_white" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnJoin"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:background = "@drawable/green_gradient"
-            android:text="Join"
-            style="@style/sub_heading"
-            android:textStyle="bold"
-            android:textColor="@android:color/white" />
-
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="146dp"
-        android:layout_height="47dp"
-        android:text="Browse Topics"
-        style="@style/sub_heading"
-        android:textColor="@color/text_dark"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="8dp"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAll"
-            android:layout_width="65dp"
-            android:layout_height="40dp"
-            android:text="All"
-            android:background = "@drawable/pink_gradient"
-            android:textColor="@color/text_white"
-            style="@style/normal_size"
-            android:textAllCaps="false"
-            android:layout_marginEnd="18dp"/>
-
-        <Button
-            android:id="@+id/btnProgramming"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="Programming"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/card_white"
-            android:textColor="@color/text_gray"
-            style="@style/normal_size"
-            android:layout_marginEnd="18dp"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Ready to quiz?"
+            android:textColor="@color/pink"
+            style="@style/bigger_heading"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnGeopolitics"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:backgroundTint="@color/card_white"
-            android:text="Geopolitics"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:text="Challenge yourself and climb the leaderboards!"
             android:textColor="@color/text_gray"
-            style="@style/normal_size"
-            android:textAllCaps="false"
-            />
-    </LinearLayout>
+            style="@style/normal_size" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="All Quizzes"
-        style="@style/sub_heading"
-        android:textColor="@color/text_dark"
-        android:layout_marginStart="16dp"/>
+        <!-- Host & Join Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHost"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/purple_gradient"
+                android:text="Host"
+                style="@style/sub_heading"
+                android:textStyle="bold"
+                android:textColor="@color/text_white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnJoin"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/green_gradient"
+                android:text="Join"
+                style="@style/sub_heading"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Browse Topics -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browse Topics"
+            style="@style/sub_heading"
+            android:textColor="@color/text_dark"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAll"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:text="All"
+                android:background="@drawable/pink_gradient"
+                android:textColor="@color/text_white"
+                style="@style/normal_size"
+                android:textAllCaps="false"
+                android:layout_marginEnd="18dp" />
+
+            <Button
+                android:id="@+id/btnProgramming"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Programming"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/card_white"
+                android:textColor="@color/text_gray"
+                style="@style/normal_size"
+                android:layout_marginEnd="18dp" />
+
+            <Button
+                android:id="@+id/btnGeopolitics"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/card_white"
+                android:text="Geopolitics"
+                android:textColor="@color/text_gray"
+                style="@style/normal_size"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- All Quizzes -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Quizzes"
+            style="@style/sub_heading"
+            android:textColor="@color/text_dark"
+            android:layout_marginStart="16dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@android:color/white"
+                    android:elevation="4dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@android:color/white"
+                    android:elevation="4dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:weightSum="3">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/nav_overlay">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/house_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                style="@style/small"
+                android:textColor="@color/text_dark" />
+        </LinearLayout>
+
+        <!-- Ranking -->
+        <LinearLayout
+            android:id="@+id/navRanking"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginBottom="12dp"
-                android:background="@android:color/white"
-                android:elevation="4dp"
-                android:orientation="vertical" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/trophy_icon" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@android:color/white"
-                android:elevation="4dp"
-                android:orientation="vertical" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ranking"
+                style="@style/small"
+                android:textColor="@color/text_dark" />
         </LinearLayout>
-    </ScrollView>
 
+        <!-- Stats (Selected) -->
+        <LinearLayout
+            android:id="@+id/navStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/progress_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stats"
+                style="@style/small"
+                android:textColor="@color/text_dark" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
-

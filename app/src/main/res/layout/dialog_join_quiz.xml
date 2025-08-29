@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_dialog"
+    android:gravity="center">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/tvJoinHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join Quiz"
+        style="@style/heading"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Enter code -->
+    <EditText
+        android:id="@+id/etCode"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter code"
+        android:padding="10dp"
+        android:textColorHint="@color/text_gray"
+        style="@style/normal_size"
+        android:textColor="@color/text_dark"
+        android:background="@drawable/text_box_shape"
+        android:inputType="text" />
+
+    <!-- Search Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSearchQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Search"
+        style="@style/normal_bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/green_gradient" />
+
+    <!-- Quiz Details (hidden initially) -->
+    <LinearLayout
+        android:id="@+id/layoutQuizDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvQuizTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quiz Title"
+            style="@style/sub_heading"
+            android:textStyle="bold"
+            android:textColor="@color/text_dark"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvQuizTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quiz Topic"
+            style="@style/normal_size"
+            android:textColor="@color/text_gray"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvHostName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Host: John Doe"
+            style="@style/normal_bold"
+            android:textColor="@color/text_dark"
+            android:layout_marginBottom="12dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnJoinNow"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Join"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/purple_gradient" />
+    </LinearLayout>
+</LinearLayout>
+

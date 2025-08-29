@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/register_page"
     android:orientation="vertical"
     android:gravity="center"
-    android:id="@+id/forgot_page"
     android:background="@drawable/bg_login_gradient">
 
     <LinearLayout
@@ -14,13 +14,13 @@
         android:layout_margin="30dp"
         android:orientation="vertical"
         android:background="@drawable/card"
-        android:padding="30dp">
+        android:padding="20dp">
 
         <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forgot Password"
+            android:text="Register"
             style="@style/bigger_heading"
             android:textColor="#8A2BE2"
             android:layout_gravity="center"
@@ -32,11 +32,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Username"
+            style="@style/normal_size"
             android:background="@drawable/text_box_shape"
             android:padding="12dp"
             android:textColor="@android:color/black"
             android:textColorHint="@color/text_gray"
-            style="@style/normal_size"
             android:layout_marginTop="8dp"/>
 
         <!-- Email -->
@@ -53,14 +53,42 @@
             android:textColorHint="@color/text_gray"
             android:layout_marginTop="8dp"/>
 
+        <!-- Password -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Password"
+            style="@style/normal_size"
+            android:background="@drawable/text_box_shape"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_gray"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Confirm Password -->
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            style="@style/normal_size"
+            android:background="@drawable/text_box_shape"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_gray"
+            android:layout_marginTop="8dp"/>
+
         <!-- Sign Up Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Check"
-            style="@style/normal_bold"
+            android:text="Sign Up"
             android:textAllCaps="false"
+            style="@style/normal_bold"
             android:textColor="@android:color/white"
             android:background="@drawable/pink_gradient"
             android:layout_marginTop="20dp"
