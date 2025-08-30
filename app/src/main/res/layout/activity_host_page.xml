@@ -451,7 +451,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 app:cardCornerRadius="15dp"
                 app:cardBackgroundColor="@color/card_white"
                 android:layout_marginTop="25dp"
@@ -461,7 +461,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
                     android:orientation="vertical"
                     >
 
@@ -473,7 +474,6 @@
                         android:textColor="@color/text_dark"
                         style="@style/normal_bold"
                         android:layout_marginLeft="2dp"
-                        android:layout_marginTop="25dp"
                         />
 
                     <LinearLayout

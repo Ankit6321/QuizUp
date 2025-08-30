@@ -103,7 +103,8 @@
                 android:text="Host"
                 style="@style/sub_heading"
                 android:textStyle="bold"
-                android:textColor="@color/text_white" />
+                android:textColor="@color/text_white"
+                android:elevation="8dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnJoin"
@@ -113,7 +114,8 @@
                 android:text="Join"
                 style="@style/sub_heading"
                 android:textStyle="bold"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:elevation="8dp"/>
         </LinearLayout>
 
         <!-- All Quizzes -->

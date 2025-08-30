@@ -1,4 +1,4 @@
-package com.example.quizupsignup
+package com.example.quizaro
 
 import android.content.Intent
 import android.os.Bundle

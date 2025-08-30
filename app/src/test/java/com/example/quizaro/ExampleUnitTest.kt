@@ -1,4 +1,4 @@
-package com.example.quizupsignup
+package com.example.quizaro
 
 import org.junit.Test
 

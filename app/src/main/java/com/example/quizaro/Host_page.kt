@@ -1,4 +1,4 @@
-package com.example.quizupsignup
+package com.example.quizaro
 
 import android.os.Bundle
 import android.view.View
@@ -39,12 +39,20 @@ class Host_page : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_host_page)  // ✅ Load layout first
 
-        // 🔹 Now find views
+        // ✅ Extend layout behind system bars (status/navigation)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_host_page)
+
+        // ✅ Apply insets so content does not overlap bars
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.host_page)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // 🔹 Spinner setup
         val timeLimitSpinner = findViewById<Spinner>(R.id.timeLimitSpinner)
-
-        // Add a "hint" item at the top
         val timeOptions = listOf("Select time limit", "10 seconds", "20 seconds", "30 seconds", "60 seconds")
 
         val adapter = object : ArrayAdapter<String>(
@@ -53,8 +61,7 @@ class Host_page : AppCompatActivity() {
             timeOptions
         ) {
             override fun isEnabled(position: Int): Boolean {
-                // Disable the first item (hint)
-                return position != 0
+                return position != 0 // disable hint
             }
 
             override fun getView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
@@ -69,12 +76,7 @@ class Host_page : AppCompatActivity() {
 
             override fun getDropDownView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
                 val view = super.getDropDownView(position, convertView, parent) as TextView
-                if (position == 0) {
-                    // Hint style (gray)
-                    view.setTextColor(ContextCompat.getColor(this@Host_page, R.color.text_white))
-                } else {
-                    view.setTextColor(ContextCompat.getColor(this@Host_page, R.color.text_white))
-                }
+                view.setTextColor(ContextCompat.getColor(this@Host_page, R.color.text_white))
                 return view
             }
         }
@@ -82,7 +84,7 @@ class Host_page : AppCompatActivity() {
 
         timeLimitSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                if (position != 0) { // Ignore the hint
+                if (position != 0) {
                     val selectedTime = timeOptions[position]
                     Toast.makeText(this@Host_page, "Selected: $selectedTime", Toast.LENGTH_SHORT).show()
                 }
@@ -116,7 +118,6 @@ class Host_page : AppCompatActivity() {
             val opt4 = option4.text.toString().trim()
             val selectedTime = timeLimitSpinner.selectedItem.toString()
 
-            // Validation
             when {
                 question.isEmpty() -> {
                     Toast.makeText(this, "Please enter a question", Toast.LENGTH_SHORT).show()
@@ -136,7 +137,7 @@ class Host_page : AppCompatActivity() {
                 }
             }
 
-            // ✅ Passed validation → Add question
+            // ✅ Add question
             questionsList.add(question)
 
             if (emptyText.parent != null) {
@@ -165,7 +166,5 @@ class Host_page : AppCompatActivity() {
             checkBox4.isChecked = false
             timeLimitSpinner.setSelection(0)
         }
-
     }
-
 }

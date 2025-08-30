@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:id="@+id/ranking_page"
+    tools:context=".Ranking_page">
+
+    <!-- Trophy Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <!-- 2nd place -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/second_trophy"
+                android:contentDescription="2nd Trophy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2nd"
+                style="@style/normal_bold"
+                android:textColor="@color/text_dark"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- 1st place -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/first_trophy"
+                android:contentDescription="1st Trophy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1st"
+                style="@style/normal_bold"
+                android:textColor="@color/text_dark"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- 3rd place -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/third_trophy"
+                android:contentDescription="3rd Trophy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3rd"
+                style="@style/normal_bold"
+                android:textColor="@color/text_dark"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/leaderboard_text_bg"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/text_white"
+        android:paddingHorizontal="24dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center">
+
+        <!-- Leaderboard Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leader board"
+            style="@style/normal_bold"
+            android:textColor="@color/text_white"
+            android:paddingHorizontal="24dp"
+            />
+
+    </LinearLayout>
+
+    <!-- List of players -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- 10 items for leaderboard -->
+            <TextView
+                android:id="@+id/leader_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="1"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="2"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="3"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="4"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="5"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="6"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="7"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="8"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_9"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="9"
+                android:textColor="@color/text_dark"/>
+
+            <TextView
+                android:id="@+id/leader_10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_gray"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:text="10"
+                android:textColor="@color/text_dark"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 🔹 Player Position -->
+    <TextView
+        android:id="@+id/player_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Position: 7"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_dark"
+        android:background="@color/box_dark_gray"
+        android:padding="8dp" />
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:weightSum="3">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/house_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                style="@style/small"
+                android:textColor="@color/text_dark" />
+        </LinearLayout>
+
+        <!-- Ranking -->
+        <LinearLayout
+            android:id="@+id/navRanking"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/nav_overlay">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/trophy_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ranking"
+                style="@style/small"
+                android:textColor="@color/text_dark" />
+        </LinearLayout>
+
+        <!-- Stats (Selected) -->
+        <LinearLayout
+            android:id="@+id/navStats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/progress_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stats"
+                style="@style/small"
+                android:textColor="@color/text_dark" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

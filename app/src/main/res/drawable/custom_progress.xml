@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background (track) -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp"/>
+            <solid android:color="#E0E0E0"/> <!-- light gray -->
+        </shape>
+    </item>
+
+    <!-- Secondary progress (optional, can show buffering etc.) -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="8dp"/>
+                <solid android:color="#BDBDBD"/> <!-- darker gray -->
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Primary progress (actual filled part) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="8dp"/>
+                <solid android:color="#F44336"/> <!-- your purple color -->
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

@@ -1,13 +1,10 @@
-package com.example.quizupsignup
+package com.example.quizaro
 
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -59,14 +56,14 @@ class Home_page : AppCompatActivity() {
             // Already on Home → do nothing
         }
 
-//        navRanking.setOnClickListener {
-//            if (this !is Ranking_page) {
-//                val intent = Intent(this, Ranking_page::class.java)
-//                startActivity(intent)
-//                overridePendingTransition(0, 0) // no animation
-//                finish()
-//            }
-//        }
+        navRanking.setOnClickListener {
+            if (this !is Ranking_page) {
+                val intent = Intent(this, Ranking_page::class.java)
+                startActivity(intent)
+                overridePendingTransition(0, 0) // no animation
+                finish()
+            }
+        }
 
         navStats.setOnClickListener {
             if (this !is Progress_page) {
