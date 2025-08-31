@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:padding="16dp"
     android:id="@+id/quiz_page"
-    tools:context=".quiz_page">
+    tools:context=".quiz_page"
+    android:paddingTop="25dp"
+    android:paddingBottom="25dp">
 
-    <!-- Top bar: only back button -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="8dp">
+        android:layout_marginHorizontal="25dp">
 
         <ImageView
             android:id="@+id/btn_back"
@@ -24,29 +24,39 @@
             android:contentDescription="Back"
             android:clickable="true"
             android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tv_quiz_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Math Quiz"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="12dp"
+            android:textColor="@android:color/black"/>
     </RelativeLayout>
 
-    <!-- Quiz title -->
     <TextView
         android:id="@+id/tv_quiz_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Math Quiz - Question 1 of 10"
+        android:text="1 of 10"
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginBottom="12dp"
+        android:layout_marginHorizontal="25dp"
         android:textColor="@android:color/black"/>
 
-    <!-- Timer section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="25dp">
 
-        <!-- Timer text -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +80,6 @@
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
 
-        <!-- Timer progress bar -->
         <ProgressBar
             android:id="@+id/progressBar_timer"
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -82,7 +91,6 @@
             android:layout_marginTop="8dp"/>
     </LinearLayout>
 
-    <!-- Question -->
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
@@ -90,17 +98,17 @@
         android:text="What is the capital of France?"
         android:textSize="16sp"
         android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="25dp"
         android:textColor="@android:color/black"/>
 
-    <!-- Options -->
     <LinearLayout
         android:id="@+id/options_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="25dp">
 
-        <!-- Option 1 -->
         <LinearLayout
             android:id="@+id/option1"
             android:layout_width="match_parent"
@@ -128,7 +136,6 @@
                 android:layout_marginStart="12dp"/>
         </LinearLayout>
 
-        <!-- Option 2 -->
         <LinearLayout
             android:id="@+id/option2"
             android:layout_width="match_parent"
@@ -156,7 +163,6 @@
                 android:layout_marginStart="12dp"/>
         </LinearLayout>
 
-        <!-- Option 3 -->
         <LinearLayout
             android:id="@+id/option3"
             android:layout_width="match_parent"
@@ -184,7 +190,6 @@
                 android:layout_marginStart="12dp"/>
         </LinearLayout>
 
-        <!-- Option 4 -->
         <LinearLayout
             android:id="@+id/option4"
             android:layout_width="match_parent"
@@ -211,10 +216,8 @@
                 android:textColor="@android:color/black"
                 android:layout_marginStart="12dp"/>
         </LinearLayout>
-
     </LinearLayout>
 
-    <!-- Submit button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
@@ -229,6 +232,6 @@
         android:layout_marginTop="24dp"
         android:paddingVertical="12dp"
         android:elevation="8dp"
-        android:layout_gravity="center_horizontal"/>
-
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="25dp"/>
 </LinearLayout>

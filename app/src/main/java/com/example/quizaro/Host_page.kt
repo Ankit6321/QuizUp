@@ -10,9 +10,16 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.view.ViewGroup
+import com.google.gson.Gson
+import java.io.File
+import java.io.FileWriter
+import java.util.UUID
 
 class Host_page : AppCompatActivity() {
 
+    private lateinit var quizTitleInput: EditText
+    private lateinit var topicInput: EditText
     private lateinit var questionInput: EditText
     private lateinit var addQuestionBtn: AppCompatButton
     private lateinit var hostBtn: AppCompatButton
@@ -32,11 +39,11 @@ class Host_page : AppCompatActivity() {
 
     private lateinit var timeLimitSpinner: Spinner
 
-    private val questionsList = mutableListOf<String>()
+    // Use a list of the new QuestionData class to store input
+    private val questionsList = mutableListOf<QuestionData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
         setContentView(R.layout.activity_host_page)
 
@@ -46,10 +53,27 @@ class Host_page : AppCompatActivity() {
             insets
         }
 
-        // 🔹 Spinner setup
+        // 🔹 View Bindings
+        quizTitleInput = findViewById(R.id.quizTitleInput)
+        topicInput = findViewById(R.id.topicInput)
+        questionInput = findViewById(R.id.questionInput)
+        addQuestionBtn = findViewById(R.id.addQuestionBtn)
+        hostBtn = findViewById(R.id.hostBtn)
+        questionsContainer = findViewById(R.id.questionsContainer)
+        emptyText = findViewById(R.id.emptyText)
+        questionsCount = findViewById(R.id.questionsCount)
+        option1 = findViewById(R.id.option1)
+        option2 = findViewById(R.id.option2)
+        option3 = findViewById(R.id.option3)
+        option4 = findViewById(R.id.option4)
+        checkBox1 = findViewById(R.id.checkBox1)
+        checkBox2 = findViewById(R.id.checkBox2)
+        checkBox3 = findViewById(R.id.checkBox3)
+        checkBox4 = findViewById(R.id.checkBox4)
         timeLimitSpinner = findViewById(R.id.timeLimitSpinner)
-        val timeOptions = listOf("Select time limit", "10 seconds", "20 seconds", "30 seconds", "60 seconds")
 
+        // 🔹 Spinner setup
+        val timeOptions = listOf("Select time limit", "10 seconds", "20 seconds", "30 seconds", "60 seconds")
         val adapter = object : ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_dropdown_item,
@@ -59,7 +83,7 @@ class Host_page : AppCompatActivity() {
                 return position != 0
             }
 
-            override fun getView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent) as TextView
                 if (position == 0) {
                     view.setTextColor(ContextCompat.getColor(this@Host_page, R.color.text_gray))
@@ -69,7 +93,7 @@ class Host_page : AppCompatActivity() {
                 return view
             }
 
-            override fun getDropDownView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getDropDownView(position, convertView, parent) as TextView
                 view.setTextColor(ContextCompat.getColor(this@Host_page, R.color.text_white))
                 return view
@@ -77,23 +101,19 @@ class Host_page : AppCompatActivity() {
         }
         timeLimitSpinner.adapter = adapter
 
-        // 🔹 Views
-        questionInput = findViewById(R.id.questionInput)
-        addQuestionBtn = findViewById(R.id.addQuestionBtn)
-        hostBtn = findViewById(R.id.hostBtn)
-        questionsContainer = findViewById(R.id.questionsContainer)
-        emptyText = findViewById(R.id.emptyText)
-        questionsCount = findViewById(R.id.questionsCount)
-
-        option1 = findViewById(R.id.option1)
-        option2 = findViewById(R.id.option2)
-        option3 = findViewById(R.id.option3)
-        option4 = findViewById(R.id.option4)
-
-        checkBox1 = findViewById(R.id.checkBox1)
-        checkBox2 = findViewById(R.id.checkBox2)
-        checkBox3 = findViewById(R.id.checkBox3)
-        checkBox4 = findViewById(R.id.checkBox4)
+        // 🔹 Checkbox listeners
+        val checkboxes = arrayOf(checkBox1, checkBox2, checkBox3, checkBox4)
+        for (i in checkboxes.indices) {
+            checkboxes[i].setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    for (j in checkboxes.indices) {
+                        if (i != j) {
+                            checkboxes[j].isChecked = false
+                        }
+                    }
+                }
+            }
+        }
 
         // 🔹 Add Question Button
         addQuestionBtn.setOnClickListener {
@@ -114,7 +134,7 @@ class Host_page : AppCompatActivity() {
                     return@setOnClickListener
                 }
                 !(checkBox1.isChecked || checkBox2.isChecked || checkBox3.isChecked || checkBox4.isChecked) -> {
-                    Toast.makeText(this, "Please select at least one correct option", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Please select the correct option", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
                 selectedTime == "Select time limit" -> {
@@ -123,20 +143,33 @@ class Host_page : AppCompatActivity() {
                 }
             }
 
-            // ✅ Add question
-            questionsList.add("$question (Time: $selectedTime)")
+            // Get the correct option index
+            val correctIndex = when {
+                checkBox1.isChecked -> 0
+                checkBox2.isChecked -> 1
+                checkBox3.isChecked -> 2
+                checkBox4.isChecked -> 3
+                else -> -1
+            }
+
+            // ✅ Store complete question data in the list
+            val newQuestion = QuestionData(
+                questionText = question,
+                timeLimit = selectedTime,
+                options = listOf(opt1, opt2, opt3, opt4),
+                correctOptionIndex = correctIndex
+            )
+            questionsList.add(newQuestion)
 
             if (emptyText.parent != null) {
                 questionsContainer.removeView(emptyText)
             }
-
             val questionView = TextView(this).apply {
                 text = "${questionsList.size}. $question (Time: $selectedTime)"
                 setTextColor(ContextCompat.getColor(this@Host_page, R.color.text_dark))
                 textSize = 16f
                 setPadding(8, 8, 8, 8)
             }
-
             questionsContainer.addView(questionView)
             questionsCount.text = "Questions (${questionsList.size})"
 
@@ -155,13 +188,64 @@ class Host_page : AppCompatActivity() {
 
         // 🔹 Host Button
         hostBtn.setOnClickListener {
-            if (questionsList.isEmpty()) {
-                Toast.makeText(this, "Please add at least one question", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            val quizTitle = quizTitleInput.text.toString().trim()
+            val quizTopic = topicInput.text.toString().trim()
+
+            when {
+                quizTitle.isEmpty() -> {
+                    Toast.makeText(this, "Please enter a quiz title", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                quizTopic.isEmpty() -> {
+                    Toast.makeText(this, "Please enter a quiz topic", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                questionsList.isEmpty() -> {
+                    Toast.makeText(this, "Please add at least one question", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+            }
+
+            // Generate a unique code
+            val uniqueCode = UUID.randomUUID().toString().substring(0, 5)
+
+            // ✅ Map the temporary data to the final data structure
+            val questionsForJson = questionsList.map { questionData ->
+                Question(
+                    questionText = questionData.questionText,
+                    timeLimit = questionData.timeLimit.substringBefore(" ").toInt(),
+                    options = questionData.options,
+                    correctOptionIndex = questionData.correctOptionIndex
+                )
+            }
+
+            val quizData = Quiz(
+                code = uniqueCode,
+                title = quizTitle,
+                topic = quizTopic,
+                questions = questionsForJson
+            )
+
+            // Save the quiz data as a JSON file
+            val gson = Gson()
+            val jsonString = gson.toJson(quizData)
+            val fileName = "quiz_$uniqueCode.json"
+            val file = File(filesDir, fileName)
+
+            try {
+                FileWriter(file).use { writer ->
+                    writer.write(jsonString)
+                }
+                Toast.makeText(this, "Quiz created with code: $uniqueCode", Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
+                Toast.makeText(this, "Failed to save quiz data", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
             }
 
             val intent = Intent(this, HostMonitoringActivity::class.java).apply {
-                putStringArrayListExtra("QUESTIONS", ArrayList(questionsList))
+                putExtra("QUIZ_TITLE", quizTitle)
+                putExtra("QUIZ_TOPIC", quizTopic)
+                putExtra("QUIZ_CODE", uniqueCode)
             }
             startActivity(intent)
         }

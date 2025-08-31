@@ -61,4 +61,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
