@@ -28,7 +28,7 @@
 
         <!-- Username -->
         <EditText
-            android:id="@+id/etUsername"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Username"
@@ -41,7 +41,7 @@
 
         <!-- Email -->
         <EditText
-            android:id="@+id/etEmail"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Email"
@@ -49,13 +49,13 @@
             android:background="@drawable/text_box_shape"
             android:padding="12dp"
             android:inputType="textEmailAddress"
-            android:textColor="@color/text_gray"
+            android:textColor="@android:color/black"
             android:textColorHint="@color/text_gray"
             android:layout_marginTop="8dp"/>
 
         <!-- Password -->
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Password"
@@ -63,13 +63,13 @@
             android:background="@drawable/text_box_shape"
             android:padding="12dp"
             android:inputType="textPassword"
-            android:textColor="@color/text_dark"
+            android:textColor="@android:color/black"
             android:textColorHint="@color/text_gray"
             android:layout_marginTop="8dp"/>
 
         <!-- Confirm Password -->
         <EditText
-            android:id="@+id/etConfirmPassword"
+            android:id="@+id/confirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
@@ -77,7 +77,7 @@
             android:background="@drawable/text_box_shape"
             android:padding="12dp"
             android:inputType="textPassword"
-            android:textColor="@color/text_dark"
+            android:textColor="@android:color/black"
             android:textColorHint="@color/text_gray"
             android:layout_marginTop="8dp"/>
 

@@ -1,15 +1,9 @@
 package com.example.quizaro
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Spinner
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -21,6 +15,7 @@ class Host_page : AppCompatActivity() {
 
     private lateinit var questionInput: EditText
     private lateinit var addQuestionBtn: AppCompatButton
+    private lateinit var hostBtn: AppCompatButton
     private lateinit var questionsContainer: LinearLayout
     private lateinit var emptyText: TextView
     private lateinit var questionsCount: TextView
@@ -35,16 +30,16 @@ class Host_page : AppCompatActivity() {
     private lateinit var checkBox3: CheckBox
     private lateinit var checkBox4: CheckBox
 
+    private lateinit var timeLimitSpinner: Spinner
+
     private val questionsList = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // ✅ Extend layout behind system bars (status/navigation)
         enableEdgeToEdge()
         setContentView(R.layout.activity_host_page)
 
-        // ✅ Apply insets so content does not overlap bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.host_page)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -52,7 +47,7 @@ class Host_page : AppCompatActivity() {
         }
 
         // 🔹 Spinner setup
-        val timeLimitSpinner = findViewById<Spinner>(R.id.timeLimitSpinner)
+        timeLimitSpinner = findViewById(R.id.timeLimitSpinner)
         val timeOptions = listOf("Select time limit", "10 seconds", "20 seconds", "30 seconds", "60 seconds")
 
         val adapter = object : ArrayAdapter<String>(
@@ -61,7 +56,7 @@ class Host_page : AppCompatActivity() {
             timeOptions
         ) {
             override fun isEnabled(position: Int): Boolean {
-                return position != 0 // disable hint
+                return position != 0
             }
 
             override fun getView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
@@ -82,20 +77,10 @@ class Host_page : AppCompatActivity() {
         }
         timeLimitSpinner.adapter = adapter
 
-        timeLimitSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                if (position != 0) {
-                    val selectedTime = timeOptions[position]
-                    Toast.makeText(this@Host_page, "Selected: $selectedTime", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
-
-        // 🔹 Other views
+        // 🔹 Views
         questionInput = findViewById(R.id.questionInput)
         addQuestionBtn = findViewById(R.id.addQuestionBtn)
+        hostBtn = findViewById(R.id.hostBtn)
         questionsContainer = findViewById(R.id.questionsContainer)
         emptyText = findViewById(R.id.emptyText)
         questionsCount = findViewById(R.id.questionsCount)
@@ -110,6 +95,7 @@ class Host_page : AppCompatActivity() {
         checkBox3 = findViewById(R.id.checkBox3)
         checkBox4 = findViewById(R.id.checkBox4)
 
+        // 🔹 Add Question Button
         addQuestionBtn.setOnClickListener {
             val question = questionInput.text.toString().trim()
             val opt1 = option1.text.toString().trim()
@@ -138,7 +124,7 @@ class Host_page : AppCompatActivity() {
             }
 
             // ✅ Add question
-            questionsList.add(question)
+            questionsList.add("$question (Time: $selectedTime)")
 
             if (emptyText.parent != null) {
                 questionsContainer.removeView(emptyText)
@@ -165,6 +151,19 @@ class Host_page : AppCompatActivity() {
             checkBox3.isChecked = false
             checkBox4.isChecked = false
             timeLimitSpinner.setSelection(0)
+        }
+
+        // 🔹 Host Button
+        hostBtn.setOnClickListener {
+            if (questionsList.isEmpty()) {
+                Toast.makeText(this, "Please add at least one question", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val intent = Intent(this, HostMonitoringActivity::class.java).apply {
+                putStringArrayListExtra("QUESTIONS", ArrayList(questionsList))
+            }
+            startActivity(intent)
         }
     }
 }

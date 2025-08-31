@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_gradient"
+    android:id="@+id/main"
+    tools:context=".HostMonitoringActivity">
+
+    <TextView
+        android:id="@+id/quizTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quiz Title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_dark"/>
+
+    <TextView
+        android:id="@+id/quizTopicText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Topic: General"
+        android:textSize="18sp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/text_dark"/>
+
+    <Button
+        android:id="@+id/startQuizBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="Start Quiz"
+        android:background="@drawable/blue_gradient"
+        android:textColor="@color/text_white"
+        android:textAllCaps="false"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Participants"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/text_dark"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/participantsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

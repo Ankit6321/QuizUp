@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/white"
     android:padding="16dp"
     android:id="@+id/quiz_page"
     tools:context=".quiz_page">
 
-    <!-- Top bar: back button + timer -->
+    <!-- Top bar: only back button -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="8dp">
 
-        <!-- Back -->
         <ImageView
             android:id="@+id/btn_back"
             android:layout_width="32dp"
@@ -25,15 +24,34 @@
             android:contentDescription="Back"
             android:clickable="true"
             android:focusable="true"/>
+    </RelativeLayout>
 
-        <!-- Timer icon + countdown text -->
+    <!-- Quiz title -->
+    <TextView
+        android:id="@+id/tv_quiz_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Math Quiz - Question 1 of 10"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:textColor="@android:color/black"/>
+
+    <!-- Timer section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp">
+
+        <!-- Timer text -->
         <LinearLayout
-            android:id="@+id/timer_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_alignParentEnd="true">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/ic_timer"
@@ -51,30 +69,18 @@
                 android:textColor="@android:color/black"
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
-    </RelativeLayout>
 
-    <!-- Progress bar under top bar -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:progress="40"
-        android:max="100"
-        android:progressDrawable="@drawable/custom_progress"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- Quiz title -->
-    <TextView
-        android:id="@+id/tv_quiz_status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quiz in Progress"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"
-        android:textColor="@android:color/black"/>
+        <!-- Timer progress bar -->
+        <ProgressBar
+            android:id="@+id/progressBar_timer"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:progress="100"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_progress"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
 
     <!-- Question -->
     <TextView
@@ -208,6 +214,7 @@
 
     </LinearLayout>
 
+    <!-- Submit button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
