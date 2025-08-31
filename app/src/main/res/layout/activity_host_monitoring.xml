@@ -1,57 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="20dp"
     android:background="@drawable/bg_gradient"
-    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HostMonitoringActivity">
 
-    <TextView
-        android:id="@+id/quizTitleText"
+    <!-- Quiz Info Card -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quiz Title"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_dark"/>
+        android:orientation="vertical"
+        android:background="@drawable/card"
+        android:padding="16dp"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false">
 
-    <TextView
-        android:id="@+id/quizTopicText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Topic: General"
-        android:textSize="18sp"
-        android:layout_marginTop="6dp"
-        android:textColor="@color/text_dark"/>
+        <TextView
+            android:id="@+id/quizTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz Title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_dark"
+            android:ellipsize="end"
+            android:singleLine="true"/>
 
-    <Button
+        <TextView
+            android:id="@+id/quizTopicText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Topic: General"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_dark"/>
+    </LinearLayout>
+
+    <!-- Start Button -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/startQuizBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
         android:text="Start Quiz"
-        android:background="@drawable/blue_gradient"
+        android:background="@drawable/red_button"
         android:textColor="@color/text_white"
         android:textAllCaps="false"
-        android:textSize="16sp"/>
+        android:textSize="18sp"/>
 
+    <!-- Participants Label -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Participants"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
         android:textColor="@color/text_dark"/>
 
+    <!-- Participants List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/participantsRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="10dp"/>
-
+        android:clipToPadding="false"
+        android:scrollbars="vertical"/>
 </LinearLayout>

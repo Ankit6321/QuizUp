@@ -13,6 +13,7 @@ data class LoginRequest(
 )
 
 data class ResetRequest(
+    val username: String,
     val email: String
 )
 
